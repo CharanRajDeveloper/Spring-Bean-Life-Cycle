@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+			<!-- default-init-method="init"  commenting to implement third ie. by implementing interface
+			default-destroy-method="destroy" -->
+	
+	<context:annotation-config></context:annotation-config>
+	<!-- <bean id="Connectiondetails" class="com.beanDAO.ConnectionDetails"> 
+		<property name="driver" value="com.mysql.jdbc.Driver"></property> <property 
+		name="url" value="jdbc:mysql://127.0.0.1:3306/charan?useSSL=false"></property> 
+		<property name="userName" value="root"></property> <property name="password" 
+		value="password"></property> </bean> <bean id="StudentDAO" class="com.beanDAO.StudentDAO"> 
+		<property name="condetail" ref="Connectiondetails"></property> </bean> -->
+
+
+	<bean id="StudentDAO" class="com.beanDAO.StudentDAO">
+		<property name="driver" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/charan?useSSL=false"></property>
+		<property name="userName" value="root"></property>
+		<property name="password" value="password"></property>
+	</bean>
+	<!-- Below method works only PostConstruct and preDestroy Annotation -->
+	<bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+		<bean id="hello" class="com.beanDAO.Hello"></bean>
+</beans>
